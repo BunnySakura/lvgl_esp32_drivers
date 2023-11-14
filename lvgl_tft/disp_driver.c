@@ -4,7 +4,7 @@
 
 #include "disp_driver.h"
 #include "disp_spi.h"
-// #include "lvgl_tft/esp_lcd_backlight.h" // 与IDF 5不兼容
+#include "lvgl_tft/esp_lcd_backlight.h"
 #include "sdkconfig.h"
 
 void *disp_driver_init(void)
