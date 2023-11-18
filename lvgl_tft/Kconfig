@@ -307,10 +307,25 @@ menu "LVGL TFT Display controller"
         bool "GC9A01"
             select LV_TFT_DISPLAY_CONTROLLER_GC9A01
             select LV_TFT_DISPLAY_PROTOCOL_SPI
-        config LV_TFT_DISPLAY_USER_CONTROLLER_ST7735S
-            bool "ST7735S"
+    config LV_TFT_DISPLAY_USER_CONTROLLER_ST7735S
+        bool "ST7735S"
             select LV_TFT_DISPLAY_CONTROLLER_ST7735S
             select LV_TFT_DISPLAY_PROTOCOL_SPI
+
+        config COLSTART
+            int "Y-axis offset value"
+            depends on LV_TFT_DISPLAY_USER_CONTROLLER_ST7735S
+            default 24
+            help
+                Adjust the Y-axis offset value based on the resolution when screen glitches occur.
+
+        config ROWSTART
+            int "X-axis offset value"
+            depends on LV_TFT_DISPLAY_USER_CONTROLLER_ST7735S
+            default 0
+            help
+                Adjust the X-axis offset value based on the resolution when screen glitches occur.
+
     config LV_TFT_DISPLAY_USER_CONTROLLER_HX8357
         bool "HX8357"
             select LV_TFT_DISPLAY_CONTROLLER_HX8357
